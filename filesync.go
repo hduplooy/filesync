@@ -28,7 +28,7 @@ func SyncFolders(config *Config) error {
 		if d.IsDir() {
 			if err != nil {
 				// Make folder
-				err := os.MkdirAll(config.DestinationPath+path, 0666)
+				err := os.MkdirAll(config.DestinationPath+path, 0777)
 				if err != nil {
 					return err
 				}
@@ -39,7 +39,7 @@ func SyncFolders(config *Config) error {
 				if err != nil {
 					return err
 				}
-				err = os.WriteFile(config.DestinationPath+path, buf, 0666)
+				err = os.WriteFile(config.DestinationPath+path, buf, 0777)
 				if err != nil {
 					return err
 				}
